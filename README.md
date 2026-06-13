@@ -2,7 +2,7 @@
 
 # 🧠 RealTime ML
 
-### Machine Learning predictions served live through the browser
+Machine Learning predictions served live through the browser
 
 Trained ensemble models taken out of Jupyter notebooks and deployed behind a Django web app — fill in a form, get an instant prediction. No notebooks, no code, just results in real time.
 
