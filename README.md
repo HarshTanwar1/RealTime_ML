@@ -75,7 +75,7 @@ It ships with **two independent prediction services** built on two different ML 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/HarshTanwar1/RealTime_ML.git
-cd RealTime_ML-main
+cd RealTime_ML
 
 # 2. (Recommended) Create and activate a virtual environment
 python3 -m venv venv
