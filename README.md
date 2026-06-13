@@ -6,6 +6,14 @@
 
 Trained ensemble models taken out of Jupyter notebooks and deployed behind a Django web app — fill in a form, get an instant prediction. No notebooks, no code, just results in real time.
 
+<p>
+  <img src="https://img.shields.io/badge/Python-3.11.5-3776AB?style=flat&logo=python&logoColor=white" alt="Python 3.11.5" />
+  <img src="https://img.shields.io/badge/Django-5.0.2-092E20?style=flat&logo=django&logoColor=white" alt="Django 5.0.2" />
+  <img src="https://img.shields.io/badge/scikit--learn-1.2.1-F7931E?style=flat&logo=scikit-learn&logoColor=white" alt="scikit-learn 1.2.1" />
+  <img src="https://img.shields.io/badge/pandas-2.2.0-150458?style=flat&logo=pandas&logoColor=white" alt="pandas 2.2.0" />
+  <img src="https://img.shields.io/badge/NumPy-1.26.4-013243?style=flat&logo=numpy&logoColor=white" alt="NumPy 1.26.4" />
+  <img src="https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat&logo=jupyter&logoColor=white" alt="Jupyter Notebook" />
+</p>
 </div>
 <br/>
 
@@ -69,31 +77,37 @@ It ships with **two independent prediction services** built on two different ML 
 
 ## ⚡ Quick Start
 
-### Prerequisites
-- Python 3.11.5 (or a compatible 3.11.x)
-
+### 1. Clone the repository
 ```bash
 # 1. Clone the repository
 git clone https://github.com/HarshTanwar1/RealTime_ML.git
 cd RealTime_ML
+```
 
-# 2. (Recommended) Create and activate a virtual environment
+### 2. (Recommended) Create and activate a virtual environment
+```bash
 python3 -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
+```
 
-# 3. Install dependencies
+### 3. Install dependencies
+```bash
 pip install numpy==1.26.4 pandas==2.2.0 pillow==10.2.0 django==5.0.2 scikit-learn==1.2.1
+```
 
-# 4. Apply database migrations
+### 4. Apply database migrations
+```bash
 python manage.py migrate
+```
 
-# 5. Start the development server
+### 5. Start the development server
+```bash
 python manage.py runserver
 ```
 
-Then open **http://127.0.0.1:8000/**, pick a service, fill in the form, and get a live prediction. 🎉
+Then open **http://127.0.0.1:8000/** in your browser, pick a service, fill in the form, and get a live prediction. 🎉
 
-> ⚠️ **Version note:** the models were pickled with **scikit-learn 1.2.1**. A different version may trigger unpickling warnings or errors — matching the version is recommended.
+> ⚠️ **Version note:** the models were pickled with **scikit-learn 1.2.1**. A different version may trigger unpickling warnings or errors — matching the version is recommended
 <br/>
 
 ## 🗂️ Project Structure
@@ -146,8 +160,9 @@ RealTime_ML-main/
 - ⚡ **Load models once at startup** (and from a versioned registry) instead of reading `.pkl` files on every request.
 <br/>
 
+---
 <div align="center">
 
-⭐ *If you found this project interesting, consider giving it a star!*
+⭐ If you found this project interesting, consider giving it a star!
 
 </div>
