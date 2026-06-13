@@ -4,7 +4,7 @@
 
 Machine Learning predictions served live through the browser
 
-Trained ensemble models taken out of Jupyter notebooks and deployed behind a Django web app — fill in a form, get an instant prediction. No notebooks, no code, just results in real time.
+Trained ensemble models taken out of Jupyter notebooks and deployed behind a Django web app — fill in a form, get an instant prediction. No notebooks, no code, just results in real time
 
 <p>
   <img src="https://img.shields.io/badge/Python-3.11.5-3776AB?style=flat&logo=python&logoColor=white" alt="Python 3.11.5" />
