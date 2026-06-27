@@ -89,7 +89,7 @@ git clone https://github.com/HarshTanwar1/RealTime_ML.git
 cd RealTime_ML
 ```
 
-### 2. (Recommended) Create and activate a virtual environment
+### 2. Create and activate a virtual environment _(recommended)_
 
 ```bash
 python3 -m venv venv
