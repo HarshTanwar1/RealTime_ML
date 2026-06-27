@@ -20,23 +20,23 @@ Trained ensemble models taken out of Jupyter notebooks and deployed behind a Dja
 
 ## ✨ Overview
 
-**RealTime ML** demonstrates the *full lifecycle* of a practical machine learning project — from raw data to a clickable prediction in the browser:
+**RealTime ML** demonstrates the _full lifecycle_ of a practical machine learning project — from raw data to a clickable prediction in the browser:
 
 > **Data exploration** → **feature engineering** → **model benchmarking** → **ensemble selection** → **serialization** → **live web deployment**
 
 It ships with **two independent prediction services** built on two different ML problem types, both powered by **stacking ensembles** chosen after benchmarking multiple algorithms against simpler baselines.
 
-| 🩺 Service | 🎯 Problem Type | ❓ Question It Answers |
-|---|---|---|
-| **Heart Disease Detection** | Classification | Given a patient's clinical attributes, is heart disease likely present? |
-| **Fuel Consumption Prediction** | Regression | Given a car's specifications, what is its estimated fuel economy (MPG)? |
+| 🩺 Service                      | 🎯 Problem Type | ❓ Question It Answers                                                  |
+| ------------------------------- | --------------- | ----------------------------------------------------------------------- |
+| **Heart Disease Detection**     | Classification  | Given a patient's clinical attributes, is heart disease likely present? |
+| **Fuel Consumption Prediction** | Regression      | Given a car's specifications, what is its estimated fuel economy (MPG)? |
 
 <br/>
 
 ## 🚀 Key Highlights
 
-- 🧩 **Ensemble modeling** — Voting *and* Stacking ensembles benchmarked against tuned individual models (Logistic Regression, SVM, k-NN, Decision Trees, Random Forest, and more).
-- ⚙️ **Production-style inference** — preprocessing (Min–Max scaling + one-hot encoding) is reproduced *exactly* at request time so live predictions match training.
+- 🧩 **Ensemble modeling** — Voting _and_ Stacking ensembles benchmarked against tuned individual models (Logistic Regression, SVM, k-NN, Decision Trees, Random Forest, and more).
+- ⚙️ **Production-style inference** — preprocessing (Min–Max scaling + one-hot encoding) is reproduced _exactly_ at request time so live predictions match training.
 - 🔍 **Systematic tuning** — every candidate model optimized with `GridSearchCV` and compared on consistent metrics (precision/accuracy vs. R²).
 - 💾 **Decoupled training & serving** — models and scalers serialized with `pickle` and loaded by the web app, so serving needs no retraining.
 
@@ -44,26 +44,12 @@ It ships with **two independent prediction services** built on two different ML 
 
 ## 🛠️ Tech Stack
 
-**Web**
-- Python 3.11.5
-- Django 5.0.2
-- SQLite
-
-**Machine Learning & Data**
-- scikit-learn 1.2.1
-- pandas 2.2.0
-- NumPy 1.26.4
-- Pillow 10.2.0
-- pickle for serialization
-
-**Notebooks & Visualization**
-- Jupyter Notebook
-- Matplotlib
-- Seaborn
-
-**Datasets**
-- `heart.csv` — clinical heart-disease data (classification)
-- `auto-mpg.csv` — automobile fuel-economy data (regression)
+| Layer                         | Technologies                                                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **Web**                       | Python 3.11.5 · Django 5.0.2 · SQLite                                                                         |
+| **Machine Learning & Data**   | scikit-learn 1.2.1 · pandas 2.2.0 · NumPy 1.26.4 · Pillow 10.2.0 · pickle (serialization)                     |
+| **Notebooks & Visualization** | Jupyter Notebook · Matplotlib · Seaborn                                                                       |
+| **Datasets**                  | `heart.csv` (clinical heart-disease — classification) · `auto-mpg.csv` (automobile fuel-economy — regression) |
 
 <br/>
 
@@ -72,8 +58,8 @@ It ships with **two independent prediction services** built on two different ML 
 - **Data exploration** — loaded and inspected both datasets in Jupyter, handled missing values, and studied feature distributions with Matplotlib/Seaborn.
 - **Feature engineering** — one-hot encoded categoricals (`pd.get_dummies`) and Min–Max scaled continuous features for the heart-disease data; cleaned and prepared the auto-mpg data.
 - **Model benchmarking** — trained and tuned a range of algorithms with `GridSearchCV`:
-   - *Classification:* Gaussian Naive Bayes, Logistic Regression, SVM, k-NN, Decision Tree.
-   - *Regression:* Random Forest, Linear Regression, Decision Tree, ElasticNet, Lasso, k-NN.
+  - _Classification:_ Gaussian Naive Bayes, Logistic Regression, SVM, k-NN, Decision Tree.
+  - _Regression:_ Random Forest, Linear Regression, Decision Tree, ElasticNet, Lasso, k-NN.
 - **Ensembling** — compared **Voting** and **Stacking** ensembles built from the best models, using `GridSearchCV` to select the optimal `final_estimator`.
 - **Model selection & serialization** — picked the best stacking ensemble for each task and saved the models (and scaler) with `pickle`.
 - **Web integration** — built a Django app that loads the models, reproduces the exact preprocessing at request time, runs inference, and renders results.
@@ -89,13 +75,14 @@ It ships with **two independent prediction services** built on two different ML 
   - Min–Max scaling of continuous heart-disease features via a pre-fitted scaler (`min_max_scaler.pkl`).
   - One-hot encoding of categorical inputs (sex, chest-pain type, ECG, exercise angina, ST slope) reconstructed to match the training schema.
 - **Pre-trained, serialized models** loaded from `.pkl` files — no retraining to serve predictions.
-- **Human-readable results** on a dedicated page (e.g. *"Heart disease detected!"* or *"The estimated gas consumption is: 27.431 MPG"*).
+- **Human-readable results** on a dedicated page (e.g. _"Heart disease detected!"_ or _"The estimated gas consumption is: 27.431 MPG"_).
 
 <br/>
 
 ## ⚡ Getting Started
 
 ### 1. Clone the repository
+
 ```bash
 # 1. Clone the repository
 git clone https://github.com/HarshTanwar1/RealTime_ML.git
@@ -103,22 +90,26 @@ cd RealTime_ML
 ```
 
 ### 2. (Recommended) Create and activate a virtual environment
+
 ```bash
 python3 -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 ```
 
 ### 3. Install dependencies
+
 ```bash
 pip install numpy==1.26.4 pandas==2.2.0 pillow==10.2.0 django==5.0.2 scikit-learn==1.2.1
 ```
 
 ### 4. Apply database migrations
+
 ```bash
 python manage.py migrate
 ```
 
 ### 5. Start the development server
+
 ```bash
 python manage.py runserver
 ```
@@ -131,7 +122,7 @@ Then open **http://127.0.0.1:8000/** in your browser, pick a service, fill in th
 
 ## 📚 What I Learned
 
-- **Bridging the notebook-to-production gap** — preprocessing must be *replicated exactly* at inference (same scaler, same one-hot column order) or predictions silently break.
+- **Bridging the notebook-to-production gap** — preprocessing must be _replicated exactly_ at inference (same scaler, same one-hot column order) or predictions silently break.
 - **Ensemble methods in practice** — Voting vs. Stacking, and why combining diverse base learners under a meta-estimator can beat any single tuned model.
 - **Systematic hyperparameter tuning** with `GridSearchCV` and fair comparison across algorithms using consistent metrics.
 - **Model persistence** — serializing and reloading models/scalers so training and serving stay decoupled.
