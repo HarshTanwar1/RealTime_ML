@@ -49,7 +49,7 @@ It ships with **two independent prediction services** built on two different ML 
 | **Web**                       | Python 3.11.5 · Django 5.0.2 · SQLite                                                                         |
 | **Machine Learning & Data**   | scikit-learn 1.2.1 · pandas 2.2.0 · NumPy 1.26.4 · Pillow 10.2.0 · pickle (serialization)                     |
 | **Notebooks & Visualization** | Jupyter Notebook · Matplotlib · Seaborn                                                                       |
-| **Datasets**                  | `heart.csv` (clinical heart-disease — classification) · `auto-mpg.csv` (automobile fuel-economy — regression) |
+| **Datasets**                  | [`heart.csv`](Classification/heart.csv) (clinical heart-disease — classification) · [`auto-mpg.csv`](Regression/auto-mpg.csv) (automobile fuel-economy — regression) |
 
 <br/>
 
